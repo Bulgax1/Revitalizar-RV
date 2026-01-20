@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "b6e44df5f21e53a611f1",
+  "position": {
+    "x": 55,
+    "y": 1533.255149431887,
+    "z": 5000,
+    "height": 1983.4115172347801,
+    "width": 1810,
+    "tabOrder": 3000
+  },
+  "visualGroup": {
+    "displayName": "Econômico",
+    "groupMode": "ScaleMode"
+  }
+}

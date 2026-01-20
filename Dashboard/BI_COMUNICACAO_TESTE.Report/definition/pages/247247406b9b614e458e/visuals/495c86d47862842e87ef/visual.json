@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "495c86d47862842e87ef",
+  "position": {
+    "x": 0.2678571428571459,
+    "y": 0,
+    "z": 1000,
+    "height": 106.85714285714286,
+    "width": 984.85714285714289,
+    "tabOrder": 0
+  },
+  "visualGroup": {
+    "displayName": "Cabeçalho",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "b67a019f8214e7692652"
+}

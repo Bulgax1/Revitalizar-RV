@@ -1,0 +1,1950 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "ae370ff6ab98db0bfbef",
+  "position": {
+    "x": 356.25,
+    "y": 146.27322485183129,
+    "z": 1000,
+    "height": 752.5,
+    "width": 1453.75,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "ID_CONTRATO"
+                }
+              },
+              "queryRef": "C3 - CONT - CONTROLE DE CONTRATOS.IDENTIFICAÇÃO DO CONTRATO",
+              "nativeQueryRef": "I.C.",
+              "displayName": "I.C."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "SEI DO CONTRATO"
+                }
+              },
+              "queryRef": "C3 - CONT - CONTROLE DE CONTRATOS.SEI DO CONTRATO",
+              "nativeQueryRef": "N° SEI CONTRATO",
+              "displayName": "N° SEI CONTRATO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "CONTRATO"
+                }
+              },
+              "queryRef": "C3 - CONT - CONTROLE DE CONTRATOS.CONTRATO",
+              "nativeQueryRef": "N° CONTRATO",
+              "displayName": "N° CONTRATO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "DATA DA PRIMEIRA OS"
+                }
+              },
+              "queryRef": "C3 - CONTRATO CONTROLE.DATA DA PRIMEIRA OS",
+              "nativeQueryRef": "INÍCIO",
+              "displayName": "INÍCIO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "PRAZO CONTRATUAL"
+                }
+              },
+              "queryRef": "C3 - CONT - CONTROLE DE CONTRATOS.PRAZO CONTRATUAL",
+              "nativeQueryRef": "PRAZO (MÊS)",
+              "displayName": "PRAZO (MÊS)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "TÉRMINO COM ADITIVO"
+                }
+              },
+              "queryRef": "C3 - CONT - CONTROLE DE CONTRATOS.TÉRMINO COM ADITIVO",
+              "nativeQueryRef": "TÉRMINO",
+              "displayName": "TÉRMINO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "FASE DO CONTRATO"
+                }
+              },
+              "queryRef": "C3 - CONTRATO CONTROLE.FASE DO CONTRATO",
+              "nativeQueryRef": "STATUS",
+              "displayName": "STATUS"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "VALOR CONTRATUAL COM ADITIVO"
+                }
+              },
+              "queryRef": "C3 - CONT - CONTROLE DE CONTRATOS.VALOR CONTRATUAL COM ADITIVO",
+              "nativeQueryRef": "VALOR CONTRATUAL COM ADITIVO",
+              "displayName": "VALOR"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C3 - CONTRATO CONTROLE"
+                    }
+                  },
+                  "Property": "% medida"
+                }
+              },
+              "queryRef": "Sum(C3 - CONTRATO CONTROLE.% medida)",
+              "nativeQueryRef": "% medida",
+              "displayName": "% EXECUTADA"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "C3 - CONTRATO CONTROLE"
+                  }
+                },
+                "Property": "ID_CONTRATO"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFB800'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108.1428436657104D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.diretoria"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "156.85714209762116D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.REGIÃO ADMINISTRATIVA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "137.85714285714286D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.MUNICÍPIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "198.8571698760534D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.CORPO HÍDRICO / TRECHO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "140.28582956546842D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - DESA - STATUS.* EXTENSÃO  (m))"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "123.0008623995867D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - DESA - STATUS.VOLUME MEDIÇÃO(m³))"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "40D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.INÍCIO.Variation.Hierarquia de datas.Ano"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "65D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.INÍCIO.Variation.Hierarquia de datas.Trimestre"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.INÍCIO.Variation.Hierarquia de datas.Mês"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.INÍCIO.Variation.Hierarquia de datas.Dia"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.46284469705391D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.INÍCIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "40D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.TÉRMINO.Variation.Hierarquia de datas.Ano"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "65D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.TÉRMINO.Variation.Hierarquia de datas.Trimestre"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.TÉRMINO.Variation.Hierarquia de datas.Mês"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.TÉRMINO.Variation.Hierarquia de datas.Dia"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.99998234065754D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.TÉRMINO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "132.03122186360682D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.ATESTADO DE CONCLUSÃO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "125.55555555555556D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.mesAno"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.8245468913378D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.BACIA "
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "141.66247320639118D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.CONTRATO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.00000442283806D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.MEDIÇÃO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "237.99999940511546D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.MUNICÍPIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "197.63786159027669D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.VALOR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "277.4826615397806D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.VOLUME (m³))"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "243.5000078658847D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.CODIGO DE BUSCA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "189.13161379055563D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "116.50002361480975D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.INICIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143.50001634869747D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - CONT - CONTROLE DE CONTRATOS.PRAZO CONTRATUAL)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "153.99998741542774D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - CONT - CONTROLE DE CONTRATOS.PRAZO ADITIVO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "153.49998360626796D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.TERMINO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "200.7518088451817D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - CONT - CONTROLE DE CONTRATOS.VALOR TOTAL)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "254.48909394584393D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.IDENTIFICACAO DO CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "56.6017751080569D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.IDENTIFICAÇÃO DO CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "187.6666653810393D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.N° do CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "58D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.DATA CELEBRAÇÃO.Variation.Hierarquia de datas.Ano"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.DATA CELEBRAÇÃO.Variation.Hierarquia de datas.Trimestre"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.DATA CELEBRAÇÃO.Variation.Hierarquia de datas.Mês"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "49D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.DATA CELEBRAÇÃO.Variation.Hierarquia de datas.Dia"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.42013431609413D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.DATA CELEBRAÇÃO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149.91741414329013D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.PRAZO CONTRATUAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "58D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.TÉRMINO COM ADITIVO.Variation.Hierarquia de datas.Ano"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "127D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.TÉRMINO COM ADITIVO.Variation.Hierarquia de datas.Trimestre"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.TÉRMINO COM ADITIVO.Variation.Hierarquia de datas.Mês"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "49D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.TÉRMINO COM ADITIVO.Variation.Hierarquia de datas.Dia"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "110.64898317812046D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.TÉRMINO COM ADITIVO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "197.25521879104173D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.VALOR CONTRATUAL COM ADITIVO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "@ @ MUNICÍPIOS BRASIL.DIVISÃO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "@ @ MUNICÍPIOS BRASIL.GERÊNCIA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.00000457060486D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "@ @ MUNICÍPIOS BRASIL.DIRETORIA/GERENCIA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "203.72823893807973D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.SEI DO CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "189.8566782546997D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "147.03522058767788D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.STATUS DO CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "170.8416404417294D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C3 - CONTRATO CONTROLE.% medida)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "220.11031074456574D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONTRATO CONTROLE.FASE DO CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "54D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONTRATO CONTROLE.DATA DA PRIMEIRA OS.Variation.Hierarquia de datas.Ano"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "117D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONTRATO CONTROLE.DATA DA PRIMEIRA OS.Variation.Hierarquia de datas.Trimestre"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "56D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONTRATO CONTROLE.DATA DA PRIMEIRA OS.Variation.Hierarquia de datas.Mês"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "46D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONTRATO CONTROLE.DATA DA PRIMEIRA OS.Variation.Hierarquia de datas.Dia"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.10066291692841D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONTRATO CONTROLE.DATA DA PRIMEIRA OS"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#02F6AD'"
+                    }
+                  }
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#020F2B'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#051A48'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "C3 - CONTRATO CONTROLE"
+                                        }
+                                      },
+                                      "Property": "<75"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'SIM'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FA0000'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Sum(C3 - CONTRATO CONTROLE.% medida)"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "C3 - CONTRATO CONTROLE.FASE DO CONTRATO"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - DESA - STATUS.* EXTENSÃO  (m))"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - DESA - STATUS.VOLUME MEDIÇÃO(m³))"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.VALOR)"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.VOLUME (m³))"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.diretoria"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.REGIÃO ADMINISTRATIVA"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.MUNICÍPIO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.CORPO HÍDRICO / TRECHO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.INÍCIO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.TÉRMINO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - DESA - STATUS.ATESTADO DE CONCLUSÃO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.mesAno"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.BACIA "
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.MEDIÇÃO)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.CONTRATO)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - FINA - CUSTO MEDIÇÃO COM VOLUME.MUNICÍPIO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.CODIGO DE BUSCA"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.INICIO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - CONT - CONTROLE DE CONTRATOS.PRAZO CONTRATUAL)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - CONT - CONTROLE DE CONTRATOS.PRAZO ADITIVO)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C2 - CONT - CONTROLE DE CONTRATOS.TERMINO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(C2 - CONT - CONTROLE DE CONTRATOS.VALOR TOTAL)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.N° do CONTRATO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.DATA CELEBRAÇÃO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.PRAZO CONTRATUAL"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.TÉRMINO COM ADITIVO"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONT - CONTROLE DE CONTRATOS.VALOR CONTRATUAL COM ADITIVO"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "C3 - CONTRATO CONTROLE.DATA DA PRIMEIRA OS"
+          }
+        }
+      ],
+      "accessibility": [
+        {
+          "properties": {
+            "rowWithReferenceText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'C2 - DESA - STATUS.diretoria'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ANÁLISE DE CONTRATOS'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#020F2B'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#020F2B'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "334ea9f305cb3c7d8630"
+}

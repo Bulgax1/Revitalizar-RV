@@ -1,0 +1,85 @@
+table '@ @ ÚLTIMA ATUALIZAÇÃO'
+	lineageTag: 61509160-4d1d-49a7-a82a-8703766b5b16
+
+	column DATA/HORA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5df4a6df-5c2d-4c2b-a620-2a06dfde2cf3
+		summarizeBy: none
+		sourceColumn: DATA/HORA
+
+		variation Variation
+			isDefault
+			relationship: 8b26868f-7495-430a-a1fa-3a5cbdf89e2d
+			defaultHierarchy: LocalDateTable_a948cd21-da05-47f9-a8e4-5e7a40335164.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: c94ea0af-1e1f-46d6-9308-7a61d4853854
+		summarizeBy: none
+		sourceColumn: DATA
+
+		variation Variation
+			isDefault
+			relationship: 9788f111-e906-48bd-b11b-2dc4d9f239e6
+			defaultHierarchy: LocalDateTable_b0cbf53d-7ffa-4106-ba4b-be14a4c9fa5f.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column HORA
+		dataType: dateTime
+		formatString: hh:nn
+		lineageTag: 50bf6f93-ee38-4e57-9495-c138d840a675
+		summarizeBy: none
+		sourceColumn: HORA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'ULTIMA ATUALIZACAO' = "Última Atualização: "&format(UTCNOW()-TIME(3,0,0),"dd/mm/yy - hh:nn")
+		lineageTag: ff0f4c51-0ba8-4ed1-8b03-af02f061c32e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Teste data' = UTCNOW()-TIME(3,0,0)
+		formatString: General Date
+		lineageTag: 81561833-f5f1-49df-b7e6-aca1db32d1ec
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 1dfdc395-5339-4315-93d6-1da95c5e02d6
+			defaultHierarchy: LocalDateTable_2d01f66a-9dbc-4e18-be6a-1ab9482892c9.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '@ @ ÚLTIMA ATUALIZAÇÃO' = m
+		mode: import
+		source =
+				let
+				    Fonte = DateTimeZone.SwitchZone(DateTimeZone.UtcNow(),-3),
+				    #"Convertido para Tabela" = #table(1, {{Fonte}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Convertido para Tabela",{{"Column1", "DATA/HORA"}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Colunas Renomeadas", "DATA", each [#"DATA/HORA"]),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Personalização Adicionada", "HORA", each [#"DATA/HORA"]),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Personalização Adicionada1", {{"DATA/HORA", type datetime}}, "pt-BR"),
+				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Changed Type with Locale", {{"DATA", type date}}, "pt-BR"),
+				    #"Changed Type with Locale2" = Table.TransformColumnTypes(#"Changed Type with Locale1", {{"HORA", type time}}, "pt-BR")
+				in
+				    #"Changed Type with Locale2"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

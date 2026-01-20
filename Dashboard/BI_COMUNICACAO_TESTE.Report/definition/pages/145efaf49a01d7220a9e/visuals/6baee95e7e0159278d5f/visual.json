@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "6baee95e7e0159278d5f",
+  "position": {
+    "x": 1643.75,
+    "y": 0,
+    "z": 1000,
+    "height": 230,
+    "width": 276.25,
+    "tabOrder": 0
+  },
+  "visualGroup": {
+    "displayName": "RelatoriosComplementares",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "579d0dc24c874d35c061"
+}

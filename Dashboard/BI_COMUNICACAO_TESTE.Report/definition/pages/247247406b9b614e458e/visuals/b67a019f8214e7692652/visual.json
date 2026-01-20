@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "b67a019f8214e7692652",
+  "position": {
+    "x": 55,
+    "y": 3625.981420118535,
+    "z": 3000,
+    "height": 764.018579881465,
+    "width": 1810.0000000000002,
+    "tabOrder": 4000
+  },
+  "visualGroup": {
+    "displayName": "Contratos",
+    "groupMode": "ScaleMode"
+  }
+}

@@ -1,0 +1,163 @@
+table 'C3 -  CONTRATOS'
+	lineageTag: 2bf071fe-2196-492a-bcc6-f51dbd596d43
+
+	column DIRETORIA
+		dataType: string
+		lineageTag: 1b7655d7-f3c9-40c1-bc43-7965ef18df99
+		summarizeBy: none
+		sourceColumn: DIRETORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERÊNCIA
+		dataType: string
+		lineageTag: 550cbd23-6557-49a6-a0fe-5debc5959d03
+		summarizeBy: none
+		sourceColumn: REFERÊNCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTRATO
+		dataType: int64
+		formatString: 0
+		lineageTag: c6f52066-517c-41a0-8709-d053e8392f78
+		summarizeBy: sum
+		sourceColumn: CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 2988424c-79f3-44a8-a994-3d1c6954dba3
+		summarizeBy: none
+		sourceColumn: Item
+		sortByColumn: ItemFiltro
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descrição
+		dataType: string
+		lineageTag: c540ed79-7a30-47ae-ac3f-1de97435c7e0
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidade
+		dataType: string
+		lineageTag: 6d68cc5a-4dde-4d2f-b1d8-4a05a7035763
+		summarizeBy: none
+		sourceColumn: Unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Preço Unitário'
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: f490a618-4b53-4ac3-814c-838ca9f22f12
+		summarizeBy: none
+		sourceColumn: Preço Unitário
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column VALOR
+		dataType: decimal
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 2df8f65c-7669-419d-af40-ab6b43ce9924
+		summarizeBy: sum
+		sourceColumn: VALOR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column STATUS
+		dataType: string
+		lineageTag: ff1a5d70-cee1-4e07-a68b-1672c45bd80e
+		summarizeBy: none
+		sourceColumn: STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemFiltro
+		dataType: double
+		lineageTag: 413a4062-9a00-4af9-9e98-15bef2331a80
+		summarizeBy: sum
+		sourceColumn: ItemFiltro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ID_ATA = CONCATENATE('C3 -  CONTRATOS'[REFERÊNCIA], 'C3 -  CONTRATOS'[Item])
+		lineageTag: 64455c73-2bc4-4eff-a215-7603a2da6b2f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_CONTRATO_ITEM = CONCATENATE(CONCATENATE('C3 -  CONTRATOS'[REFERÊNCIA], 'C3 -  CONTRATOS'[Item]), 'C3 -  CONTRATOS'[CONTRATO])
+		lineageTag: ad0de928-6d77-4bad-a4e7-77026ea022a4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_CONTRATO = CONCATENATE('C3 -  CONTRATOS'[REFERÊNCIA],'C3 -  CONTRATOS'[CONTRATO])
+		lineageTag: cfec3c00-0134-48d0-a722-f7d1ca8205ce
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CONTRATO FILTRO' = "CONTRATO "&'C3 -  CONTRATOS'[CONTRATO]
+		lineageTag: 955f991c-0838-44ae-bfd4-0504439421e6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUANTIDADE
+		dataType: double
+		lineageTag: 20c47ac9-fccf-49c3-86ba-533e4c42a821
+		summarizeBy: sum
+		sourceColumn: QUANTIDADE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'C3 -  CONTRATOS' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://revitalizarrv.sharepoint.com/SupervisaoObras/DESASSOREAMENTO/3%C2%BA%20Ciclo/2%20-%20Arquivos%20de%20Controle/CONTROLE%20QUANTITATIVOS.xlsx"), null, true),
+				    CONTRATOS_Sheet = Source{[Item="CONTRATOS",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(CONTRATOS_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type any}, {"Column4", type any}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type any}, {"Column10", type any}, {"Column11", type any}, {"Column12", type any}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}, {"Column20", type any}, {"Column21", type any}, {"Column22", type any}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}, {"Column26", type any}, {"Column27", type any}, {"Column28", type any}, {"Column29", type any}, {"Column30", type any}, {"Column31", type any}, {"Column32", type any}, {"Column33", type any}, {"Column34", type any}, {"Column35", type any}, {"Column36", type any}, {"Column37", type any}, {"Column38", type any}, {"Column39", type any}, {"Column40", type any}, {"Column41", type any}, {"Column42", type any}, {"Column43", type any}, {"Column44", type any}, {"Column45", type any}, {"Column46", type any}, {"Column47", type any}, {"Column48", type any}, {"Column49", type any}, {"Column50", type any}, {"Column51", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Column1] <> null)),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"Column4", "Column5", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22", "Column23", "Column24", "Column25", "Column26", "Column27", "Column28", "Column29", "Column30", "Column31", "Column32", "Column33", "Column34", "Column35", "Column36", "Column37", "Column38", "Column39", "Column40", "Column41", "Column42", "Column43", "Column44", "Column45", "Column46", "Column47", "Column48", "Column49", "Column50", "Column51"}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Columns", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"DIRETORIA", type text}, {"REFERÊNCIA", type text}, {"CONTRATO", Int64.Type}, {"Item", type text}, {"Descrição", type text}, {"Unidade", type text}, {"Quantidade - Contrato", type number}, {"Preço Unitário", type number}, {"Preço Total", type number}, {"STATUS", type text}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type1", {{"Preço Unitário", Currency.Type}}, "pt-BR"),
+				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Changed Type with Locale", {{"Preço Total", Currency.Type}}, "pt-BR"),
+				    Custom1 = Table.DuplicateColumn(#"Changed Type with Locale1","Item","ItemFiltro"),
+				    Custom2 = Table.SplitColumn(Custom1,"ItemFiltro",Splitter.SplitTextByPositions({0,1,2})),
+				    Custom3 = Table.ReplaceValue(Custom2, each [ItemFiltro.3], each if [ItemFiltro.3]<>"10" then Text.Combine({"0",[ItemFiltro.3]}) else [ItemFiltro.3], Replacer.ReplaceValue, {"ItemFiltro.3"}),
+				    Custom4 = Table.CombineColumns(Custom3,{"ItemFiltro.1","ItemFiltro.3"},Combiner.CombineTextByDelimiter(",", QuoteStyle.None), "ItemFiltro"),
+				    #"Removed Columns1" = Table.RemoveColumns(Custom4,{"ItemFiltro.2"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Removed Columns1",{{"ItemFiltro", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type2",{{"Quantidade - Contrato", "QUANTIDADE"}, {"Preço Total", "VALOR"}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Renamed Columns", each ([REFERÊNCIA] <> null)),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"Aditivo", type number}}),
+				    #"Soma Inserida" = Table.AddColumn(#"Tipo Alterado1", "Adição", each List.Sum({[QUANTIDADE], [Aditivo]}), type number),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Soma Inserida",{"QUANTIDADE", "Aditivo"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Colunas Removidas",{"DIRETORIA", "REFERÊNCIA", "CONTRATO", "Item", "Descrição", "Unidade", "Adição", "Preço Unitário", "VALOR", "STATUS", "ItemFiltro"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Reordenadas",{{"Adição", "QUANTIDADE"}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Renomeadas",{{"QUANTIDADE", type number}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

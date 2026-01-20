@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "7267e81cc207729f6af8",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 1000,
+    "height": 7000,
+    "width": 1920.0000000000002,
+    "tabOrder": 6000
+  },
+  "visualGroup": {
+    "displayName": "TARJAS",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

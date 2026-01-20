@@ -1,0 +1,165 @@
+table 'C3 - OS CONTROLE'
+	lineageTag: 7615eb1b-9bb0-4461-81e8-7e437ce99954
+
+	column CICLO
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e79f42c-29ed-441c-9b75-696ae2ccda48
+		summarizeBy: sum
+		sourceColumn: CICLO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BACIA
+		dataType: string
+		lineageTag: 4aec1114-da82-4983-ba43-cb45782f3655
+		summarizeBy: none
+		sourceColumn: BACIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CODIGO DE BUSCA'
+		dataType: string
+		lineageTag: 5cc7cc8b-2f84-41da-b6ed-603b98ccd8c8
+		summarizeBy: none
+		sourceColumn: CODIGO DE BUSCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'N° do CONTRATO'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f915b89-9010-43db-b218-61bf26bd1557
+		summarizeBy: sum
+		sourceColumn: N° do CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nº OS'
+		dataType: string
+		lineageTag: b54aa01a-9a91-4a91-af10-f5db0ffa0e8d
+		summarizeBy: none
+		sourceColumn: Nº OS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MUNICÍPIO
+		dataType: string
+		lineageTag: 1156735d-64f3-48ec-8abc-24823591f1ff
+		summarizeBy: none
+		sourceColumn: MUNICÍPIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column INICIO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7c1e3d9d-7b08-42c1-ac61-30f46123f521
+		summarizeBy: none
+		sourceColumn: INICIO
+
+		variation Variation
+			isDefault
+			relationship: 96665da0-29a4-43b1-b668-e302236dcf1a
+			defaultHierarchy: LocalDateTable_6f86253c-7460-4153-a255-786d57142a19.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'PRAZO DE EXECUÇÂO'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e26c189-9058-40cc-9860-872e721c7248
+		summarizeBy: sum
+		sourceColumn: PRAZO DE EXECUÇÂO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TERMINO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 89d3cc52-1e15-4c94-a488-0dd2d2c3875d
+		summarizeBy: none
+		sourceColumn: TERMINO
+
+		variation Variation
+			isDefault
+			relationship: 618ad3c9-ca45-4a16-81d1-5c471693634e
+			defaultHierarchy: LocalDateTable_8581db0b-6b80-4d18-b97f-f156794999a3.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'DATA ATESTADO DE CONCLUSÃO'
+		dataType: string
+		lineageTag: eddf99d4-df1d-4360-b8d6-cbf0a8e5bb50
+		summarizeBy: none
+		sourceColumn: DATA ATESTADO DE CONCLUSÃO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALOR ESTIMADO'
+		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 320b3199-7255-4d42-9052-c897b1d3bbc3
+		summarizeBy: sum
+		sourceColumn: VALOR ESTIMADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column GEOCODIGO = SELECTCOLUMNS(FILTER('@ @ MUNICÍPIOS BRASIL','@ @ MUNICÍPIOS BRASIL'[MUNICIPIO]='C3 - OS CONTROLE'[MUNICÍPIO]),'@ @ MUNICÍPIOS BRASIL'[GEOCODIGO])
+		formatString: 0
+		lineageTag: 627f07de-15de-4ad7-8cda-d7ebc960779e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERÊNCIA
+		dataType: string
+		lineageTag: dbe5b4b6-8423-4f2f-ae31-fbc3f1be85a1
+		summarizeBy: none
+		sourceColumn: REFERÊNCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_OS = CONCATENATE(CONCATENATE('C3 - OS CONTROLE'[ID_CONTRATO],'C3 - OS CONTROLE'[Nº OS]),'C3 - OS CONTROLE'[GEOCODIGO])
+		lineageTag: 0fd8353d-c6da-4ab7-93cf-7fa95e0a7fb1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_CONTRATO = CONCATENATE('C3 - OS CONTROLE'[REFERÊNCIA],'C3 - OS CONTROLE'[N° do CONTRATO])
+		lineageTag: 8acd5152-74c7-4f6d-8643-4f2bc153c299
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS
+		dataType: string
+		lineageTag: edcc19ea-27c9-4ed5-bec6-b0bd72f142e6
+		summarizeBy: none
+		sourceColumn: STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'C3 - OS CONTROLE' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://revitalizarrv.sharepoint.com/SupervisaoObras/DESASSOREAMENTO/3%C2%BA%20Ciclo/2%20-%20Arquivos%20de%20Controle/CONTROLE%20QUANTITATIVOS.xlsx"), null, true),
+				    C.OS_Sheet = Source{[Item="C.OS",Kind="Sheet"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(C.OS_Sheet,{"Column14"}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Columns", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"CICLO", Int64.Type}, {"BACIA", type text}, {"CODIGO DE BUSCA", type text}, {"N° do CONTRATO", Int64.Type}, {"Nº OS", type text}, {"MUNICÍPIO", type text}, {"INICIO", type date}, {"PRAZO DE EXECUÇÂO", Int64.Type}, {"TERMINO", type date}, {"DATA ATESTADO DE CONCLUSÃO", type text}, {"VALOR ESTIMADO", type number}, {"STATUS", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type1", each ([MUNICÍPIO] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

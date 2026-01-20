@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "3739086872bbba31d292",
+  "displayName": "Controle de Quantitativos",
+  "displayOption": "FitToWidth",
+  "height": 4000,
+  "width": 3210,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "84695f489860153ee913",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "C3 - STATUS"
+              }
+            },
+            "Property": "STATUS DO TRECHO"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#002C8B'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "571d56849637905cf1fa",
+      "target": "bf5ca67336acb653cb34",
+      "type": "DataFilter"
+    },
+    {
+      "source": "b6642521284a007b3c99",
+      "target": "bf5ca67336acb653cb34",
+      "type": "DataFilter"
+    },
+    {
+      "source": "a2e4207303aa511fe1ba",
+      "target": "bf5ca67336acb653cb34",
+      "type": "DataFilter"
+    },
+    {
+      "source": "226dd3fbcfae51810f1e",
+      "target": "bf5ca67336acb653cb34",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9aec277372ec854bdd39",
+      "target": "a27ea8a97c5535915240",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b6642521284a007b3c99",
+      "target": "a27ea8a97c5535915240",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2e4207303aa511fe1ba",
+      "target": "a27ea8a97c5535915240",
+      "type": "NoFilter"
+    },
+    {
+      "source": "226dd3fbcfae51810f1e",
+      "target": "a27ea8a97c5535915240",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3ac22744deeefe8e41cd",
+      "target": "a27ea8a97c5535915240",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9aec277372ec854bdd39",
+      "target": "bf5ca67336acb653cb34",
+      "type": "DataFilter"
+    }
+  ]
+}

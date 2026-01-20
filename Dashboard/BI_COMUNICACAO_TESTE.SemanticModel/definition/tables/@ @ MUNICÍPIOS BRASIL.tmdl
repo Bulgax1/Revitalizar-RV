@@ -1,0 +1,107 @@
+table '@ @ MUNICÍPIOS BRASIL'
+	lineageTag: d4e459ac-982f-4d83-8db9-d0aecc05f0d3
+
+	column MUNICIPIO
+		dataType: string
+		lineageTag: 96d9a466-07de-4ff5-a88e-683b5d15d1dc
+		summarizeBy: none
+		sourceColumn: MUNICIPIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BACIA
+		dataType: string
+		lineageTag: 7061e3c8-cb0a-4f02-99b2-4f2dd71d364d
+		summarizeBy: none
+		sourceColumn: BACIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REGIÃO ADMINISTRATIVA'
+		dataType: string
+		lineageTag: aa6227f5-b01f-4775-9900-30995458f8b1
+		summarizeBy: none
+		sourceColumn: REGIÃO ADMINISTRATIVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column POPULAÇÃO
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2b350c5b-3cb8-4d9e-a3a6-2d1d5dc47b22
+		summarizeBy: sum
+		sourceColumn: POPULAÇÃO
+
+		annotation SummarizationSetBy = User
+
+	column 'C2 - DIRETORIA' = if(LEFT('@ @ MUNICÍPIOS BRASIL'[BACIA],3)="BAT","DBAT",CONCATENATE("D",'@ @ MUNICÍPIOS BRASIL'[BACIA]))
+		lineageTag: ab257261-4c5a-49e2-8484-0d41fb78ec60
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISÃO
+		dataType: string
+		lineageTag: abfa6386-4b05-451c-97fc-1f8df2a74f5d
+		summarizeBy: none
+		sourceColumn: DIVISÃO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'C3 - DIRETORIA' = CONCATENATE("D", '@ @ MUNICÍPIOS BRASIL'[BACIA])
+		lineageTag: 2293d979-6b41-4660-b484-bb4e94633a12
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GERÊNCIA
+		dataType: string
+		lineageTag: 2bdad046-8f99-40f6-8820-bbcaad4b9835
+		summarizeBy: none
+		sourceColumn: GERÊNCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UNIDADE DE GERENCIAMENTO DE RECURSOS HÍDRICOS'
+		dataType: string
+		lineageTag: bdb93d5d-0d1e-4c8d-afed-9306836aae20
+		summarizeBy: none
+		sourceColumn: UNIDADE DE GERENCIAMENTO DE RECURSOS HÍDRICOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIRETORIA/GERENCIA = IF('@ @ MUNICÍPIOS BRASIL'[DIVISÃO] = "DAP","GPP",IF('@ @ MUNICÍPIOS BRASIL'[DIVISÃO]= "DPP", "GPP", if('@ @ MUNICÍPIOS BRASIL'[DIVISÃO]="DXP","GPP",'@ @ MUNICÍPIOS BRASIL'[DIVISÃO])))
+		lineageTag: 5a1d9682-6145-47a5-9bb5-5e7cff026c3a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GEOCODIGO
+		dataType: int64
+		formatString: 0
+		lineageTag: 40dff844-e6b4-43d0-9e21-d17227a113e5
+		summarizeBy: sum
+		sourceColumn: GEOCODIGO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '@ @ MUNICÍPIOS BRASIL' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://revitalizarrv.sharepoint.com/SupervisaoObras/DESASSOREAMENTO/3%C2%BA%20Ciclo/2%20-%20Arquivos%20de%20Controle/BASE%20DE%20DADOS.xlsx"), null, true),
+				    MunicipiosBrasi_Sheet = Fonte{[Item="MunicipiosBrasi",Kind="Sheet"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(MunicipiosBrasi_Sheet,{{"Column1", type any}, {"Column2", type text}, {"Column3", type any}, {"Column4", type any}, {"Column5", type any}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type any}, {"Column15", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Column3", "Column4", "Column5", "Column8", "Column9", "Column10", "Column11", "Column12"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Colunas Removidas", [PromoteAllScalars=true]),
+				    #"Cabeçalhos Promovidos1" = Table.PromoteHeaders(#"Cabeçalhos Promovidos", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos1",{{"DIVISÃO", type text}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Changed Type",{{"MUNICIPIO", type text}, {"BACIA", type text}, {"REGIÃO ADMINISTRATIVA", type text}, {"POPULAÇÃO", Int64.Type}, {"GEOCODIGO", Int64.Type}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each ([MUNICIPIO] <> null))
+				in
+				    #"Linhas Filtradas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,216 @@
+table 'C2 - CONTRATO CONTROLE'
+	lineageTag: aa4f19e8-6954-4dc5-bbef-3c62f53b6d77
+
+	column BACIA
+		dataType: string
+		lineageTag: 331c7722-e557-479e-9b33-92a1810d24a8
+		summarizeBy: none
+		sourceColumn: BACIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'N° do CONTRATO'
+		dataType: int64
+		formatString: 0
+		lineageTag: c3fa833e-6c96-4dac-8afb-3b85fed4250e
+		summarizeBy: sum
+		sourceColumn: N° do CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CODIGO DE BUSCA'
+		dataType: string
+		lineageTag: 3bf366ae-e7a9-4e35-a9a0-78d4173ac41c
+		summarizeBy: none
+		sourceColumn: CODIGO DE BUSCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column INICIO
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: 3e43e899-6537-4388-84d1-47e97fd62345
+		summarizeBy: none
+		sourceColumn: INICIO
+
+		variation Variation
+			isDefault
+			relationship: e39e6f4f-78d8-40c6-8b99-5f64a3cdaf9a
+			defaultHierarchy: LocalDateTable_085fb9d1-df79-49eb-9842-e0659e1e4a42.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'PRAZO CONTRATUAL'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9964c633-1597-4c6f-92e0-0cce90139c8e
+		summarizeBy: sum
+		sourceColumn: PRAZO CONTRATUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PRAZO ADITIVO'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6533b08d-7504-4065-aa53-fa54b3f3a691
+		summarizeBy: sum
+		sourceColumn: PRAZO ADITIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TERMINO
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: d32fcca0-5d93-4d10-826a-a14f1e0d01ad
+		summarizeBy: none
+		sourceColumn: TERMINO
+
+		variation Variation
+			isDefault
+			relationship: f45db019-0f76-43bf-ba06-1dd263bcf0b1
+			defaultHierarchy: LocalDateTable_e74f62da-53da-4c8b-a1e6-12aaefa16b0f.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'STATUS DO CONTRATO'
+		dataType: string
+		lineageTag: 49245984-0275-4530-b046-3b735899ff90
+		summarizeBy: none
+		sourceColumn: STATUS DO CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALOR-CONTRATO
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: f9608735-5e48-4eba-b9d6-983ae44dcc60
+		summarizeBy: sum
+		sourceColumn: VALOR-CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column ADITIVO-CONTRATO
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 88e42a44-3750-4bfc-8dac-f44968713d19
+		summarizeBy: sum
+		sourceColumn: ADITIVO-CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column 'VALOR TOTAL-CONTRATO'
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 20445422-dabc-4cce-ad12-23991da1d3ed
+		summarizeBy: sum
+		sourceColumn: VALOR TOTAL-CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column DIRETORIA = CONCATENATE("D",'C2 - CONTRATO CONTROLE'[BACIA])
+		lineageTag: 01c14931-a749-4a1e-b570-5cdbd2a11eda
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTRATO
+		dataType: string
+		lineageTag: f58ba4ea-adc9-410d-bae6-edd07832450b
+		summarizeBy: none
+		sourceColumn: CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IDENTIFICACAO DO CONTRATO' = CONCATENATE("D", 'C2 - CONTRATO CONTROLE'[CODIGO DE BUSCA])
+		lineageTag: b4643a1c-6c5c-4f53-842c-56c9cab6e2ba
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TEMPO PARO TÉRMINO' = ```
+			
+			 var diferenca = DATEDIFF(TODAY(),'C2 - CONTRATO CONTROLE'[TERMINO],DAY) 
+			 return
+			 IF(diferenca<=0, "Fase de encerramento",
+			    IF(diferenca<=15,"Entre 0 e 15 dias",
+			        IF(diferenca<=30,"Entre 16 e 30 dias",
+			            IF(diferenca<=60, "Entre 31 e 60 dias",
+			                IF(diferenca<=90, "Entre 61 e 90 dias", "Excede 90 dias"
+			                )
+			            )
+			        )
+			    )
+			 )
+			```
+		lineageTag: 2ed18192-0d1d-48bb-bc29-89624b2f645f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'N° SEI CONTRATO'
+		dataType: string
+		lineageTag: efe36412-39c3-4f26-8993-e337d395b0b2
+		summarizeBy: none
+		sourceColumn: N° SEI CONTRATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column20
+		dataType: string
+		lineageTag: d6ba1281-843c-4ce2-b963-ae2e72d067a5
+		summarizeBy: none
+		sourceColumn: Column20
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIAS ATÉ TÉRMINO' = IF(DATEDIFF(TODAY(),'C2 - CONTRATO CONTROLE'[TERMINO],DAY)<0,0,DATEDIFF(TODAY(),'C2 - CONTRATO CONTROLE'[TERMINO],DAY))
+		formatString: 0
+		lineageTag: f8c5d65f-90f6-448d-af16-c8ab70940aaf
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS = UPPER('C2 - CONTRATO CONTROLE'[STATUS DO CONTRATO])
+		lineageTag: 0bbcc2b9-5eba-40bd-8111-e988bff0c2e7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'C2 - CONTRATO CONTROLE' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://revitalizarrv.sharepoint.com/SupervisaoObras/DESASSOREAMENTO/2%C2%BA%20Ciclo/2%20-%20Arquivos%20de%20Controle/Consolidado%20Corpo%20Hidrico%20-%20Status.xlsx"), null, true),
+				    #"CONTROLE DE CONTRATOS_Sheet" = Fonte{[Item="CONTROLE DE CONTRATOS",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"CONTROLE DE CONTRATOS_Sheet", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CICLO", Int64.Type}, {"BACIA", type text}, {"N° do CONTRATO", Int64.Type}, {"CODIGO DE BUSCA", type text}, {"CONTRATO", type text}, {"NI", type any}, {"ASSINADO", type text}, {"INICIO", type date}, {"PRAZO CONTRATUAL", Int64.Type}, {"PRAZO ADITIVO", Int64.Type}, {"TERMINO", type date}, {"STATUS DO CONTRATO", type text}, {"DATA TERMO DE ENCERRAMENTO", type text}, {"VALOR CONTRATUAL", type number}, {"VALOR ADITIVO", type number}, {"VALOR TOTAL", type number}, {"CONTRATADA", type text}, {"Sim", type text}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado", each ([BACIA] <> null)),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Linhas Filtradas",{"CICLO", "NI", "ASSINADO", "DATA TERMO DE ENCERRAMENTO", "CONTRATADA", "Sim"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Removidas",{{"VALOR TOTAL", Currency.Type}, {"VALOR ADITIVO", Currency.Type}, {"VALOR CONTRATUAL", Currency.Type}}),
+				    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Tipo Alterado1", {{"TERMINO", type date}}, "pt-BR"),
+				    #"Tipo Alterado com Localidade1" = Table.TransformColumnTypes(#"Tipo Alterado com Localidade", {{"INICIO", type date}}, "pt-BR"),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado com Localidade1",{{"VALOR CONTRATUAL", "VALOR-CONTRATO"}, {"VALOR ADITIVO", "ADITIVO-CONTRATO"}, {"VALOR TOTAL", "VALOR TOTAL-CONTRATO"}}),
+				    #"Tipo Alterado com Localidade2" = Table.TransformColumnTypes(#"Colunas Renomeadas", {{"VALOR-CONTRATO", Currency.Type}}, "pt-BR"),
+				    #"Tipo Alterado com Localidade3" = Table.TransformColumnTypes(#"Tipo Alterado com Localidade2", {{"ADITIVO-CONTRATO", Currency.Type}}, "pt-BR"),
+				    #"Tipo Alterado com Localidade4" = Table.TransformColumnTypes(#"Tipo Alterado com Localidade3", {{"VALOR TOTAL-CONTRATO", Currency.Type}}, "pt-BR")
+				in
+				    #"Tipo Alterado com Localidade4"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

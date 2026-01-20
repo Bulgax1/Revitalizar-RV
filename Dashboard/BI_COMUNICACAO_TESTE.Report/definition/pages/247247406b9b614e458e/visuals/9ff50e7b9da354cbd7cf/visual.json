@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "9ff50e7b9da354cbd7cf",
+  "position": {
+    "x": 55,
+    "y": 381.00129699706918,
+    "z": 5000,
+    "height": 1063.2603852459215,
+    "width": 1810.5555555555554,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Desassoreamento",
+    "groupMode": "ScaleMode"
+  }
+}

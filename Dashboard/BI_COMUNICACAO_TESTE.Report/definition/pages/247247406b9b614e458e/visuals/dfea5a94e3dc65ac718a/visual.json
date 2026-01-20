@@ -1,0 +1,660 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "dfea5a94e3dc65ac718a",
+  "position": {
+    "x": 55,
+    "y": 4501.666666666667,
+    "z": 2000,
+    "height": 788.33333333333337,
+    "width": 1810,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "map",
+    "query": {
+      "queryState": {
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C2 - STATUS"
+                    }
+                  },
+                  "Property": "DIRETORIA"
+                }
+              },
+              "queryRef": "C2 - DESA - STATUS.DIRETORIA",
+              "nativeQueryRef": "DIRETORIA"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "C2 - STATUS"
+                        }
+                      },
+                      "Property": "CONTRATO FILTRO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(C2 - DESA - STATUS.CONTRATO FILTRO)",
+              "nativeQueryRef": "CONTRATO",
+              "displayName": "CONTRATO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "C2 - STATUS"
+                        }
+                      },
+                      "Property": "MUNICÍPIO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(C2 - DESA - STATUS.MUNICÍPIO)",
+              "nativeQueryRef": "MUNICÍPIO",
+              "displayName": "MUNICÍPIO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "C2 - STATUS"
+                        }
+                      },
+                      "Property": "CORPO HÍDRICO / TRECHO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(C2 - DESA - STATUS.CORPO HÍDRICO / TRECHO)",
+              "nativeQueryRef": "TRECHO",
+              "displayName": "TRECHO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "C2 - STATUS"
+                        }
+                      },
+                      "Property": "EXTENSÃO"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(C2 - DESA - STATUS.EXTENSÃO)",
+              "nativeQueryRef": "EXTENSÃO (m)",
+              "displayName": "EXTENSÃO (m)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "C2 - STATUS"
+                        }
+                      },
+                      "Property": "STATUS DO TRECHO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(C2 - DESA - STATUS.STATUS DO TRECHO)",
+              "nativeQueryRef": "STATUS",
+              "displayName": "STATUS"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C2 - STATUS"
+                    }
+                  },
+                  "Property": "LON_I"
+                }
+              },
+              "queryRef": "C2 - DESA - STATUS.LON_I",
+              "nativeQueryRef": "LON_I"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "C2 - STATUS"
+                    }
+                  },
+                  "Property": "LAT_I"
+                }
+              },
+              "queryRef": "C2 - DESA - STATUS.LAT_I",
+              "nativeQueryRef": "LAT_I"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "bubbles": [
+        {
+          "properties": {
+            "bubbleSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "mapStyles": [
+        {
+          "properties": {
+            "mapTheme": {
+              "expr": {
+                "Literal": {
+                  "Value": "'aerial'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12239E'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBBT'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E66C37'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBMT'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#6B007B'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBPB'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E645AB'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBPG'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#4A2D75'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBPP'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1AAB40'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBRB'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#10433F'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBTG'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "C3 - STATUS"
+                          }
+                        },
+                        "Property": "DIRETORIA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DBAT - BAIXADA'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'MAPA'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#020F2B'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#020F2B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

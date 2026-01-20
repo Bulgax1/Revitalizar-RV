@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "fa24f0939d465efc210b",
+  "position": {
+    "x": 0,
+    "y": 3.3333333333333712,
+    "z": 1000,
+    "height": 150,
+    "width": 160.83333333333334,
+    "tabOrder": 19000
+  },
+  "visual": {
+    "visualType": "image",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "imageUrl": {
+              "expr": {
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": 1,
+                  "ItemName": "ConsorcioBranco25158028437859714.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "73e52054a1a03b7be8bb",
+  "howCreated": "InsertVisualButton"
+}

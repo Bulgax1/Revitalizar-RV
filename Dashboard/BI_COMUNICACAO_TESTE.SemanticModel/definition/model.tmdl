@@ -1,0 +1,65 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["@ @ MEDIDAS","@ @ ÚLTIMA ATUALIZAÇÃO","@ @ MUNICÍPIOS BRASIL","@ @ NOME GERENCIA","@ @ NOME DIVISAO","C1 - INVESTIMENTO","C2 - ATA","C2 - CONTRATO CONTROLE","C2 - STATUS","C2 - MEDIÇÃO COM VOLUME","C3 - ATA","C3 - ATA CONTROLE","C3 -  CONTRATOS","C3 - CONTRATO CONTROLE","C3 - OS","C3 - OS CONTROLE","C3 - STATUS","C3 - MEDIÇÕES","ITEM"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'C3 - STATUS'
+ref table DateTableTemplate_1228cce1-fd29-4e85-938d-48d9c959fc3e
+ref table LocalDateTable_c5951ed3-c769-4b98-9c11-3a5accd66c09
+ref table LocalDateTable_d4d8ab81-f59b-45ec-b7e9-f9f90690b7cf
+ref table LocalDateTable_acfb9948-9466-4dcd-b789-3b8d4c605e60
+ref table '@ @ MUNICÍPIOS BRASIL'
+ref table 'C3 - ATA'
+ref table 'C3 - MEDIÇÕES'
+ref table LocalDateTable_0d5622fa-acd2-4a53-b719-49be8aa08273
+ref table 'C3 - CONTRATO CONTROLE'
+ref table LocalDateTable_c423f6f8-9271-4037-a4a2-023bd0d98801
+ref table LocalDateTable_10926013-ad7a-4e85-a288-a7a2a0c3b67f
+ref table LocalDateTable_98e3f860-9be6-473c-9245-d774354b029f
+ref table 'C2 - STATUS'
+ref table LocalDateTable_c6d9a90e-c8c9-4a78-a923-fb60ed6c296f
+ref table LocalDateTable_da1d6ae4-704c-4947-9b08-9046fda37cfb
+ref table 'C2 - MEDIÇÃO COM VOLUME'
+ref table LocalDateTable_61734ee7-6ee4-400a-8ec1-2cbe5a1e6afb
+ref table LocalDateTable_0c389099-447f-4339-85d4-013e19fe61f0
+ref table 'C2 - ATA'
+ref table 'C2 - CONTRATO CONTROLE'
+ref table LocalDateTable_085fb9d1-df79-49eb-9842-e0659e1e4a42
+ref table LocalDateTable_e74f62da-53da-4c8b-a1e6-12aaefa16b0f
+ref table 'C1 - INVESTIMENTO'
+ref table LocalDateTable_31cebc64-7ab1-4578-bf76-bd4d41fce5e0
+ref table '@ @ ÚLTIMA ATUALIZAÇÃO'
+ref table LocalDateTable_b0cbf53d-7ffa-4106-ba4b-be14a4c9fa5f
+ref table LocalDateTable_a948cd21-da05-47f9-a8e4-5e7a40335164
+ref table '@ @ MEDIDAS'
+ref table 'PPA CICLO 2'
+ref table LocalDateTable_8cb5f1d6-b277-4540-9505-16cc9bfec766
+ref table LocalDateTable_05c30dd2-19bf-43f5-9082-a948f4b480cd
+ref table 'C3 - OS'
+ref table '@ @ NOME GERENCIA'
+ref table '@ @ NOME DIVISAO'
+ref table 'C3 -  CONTRATOS'
+ref table 'C3 - ATA CONTROLE'
+ref table LocalDateTable_0400741a-3ba0-42ef-ba35-6e0ac5fc3b08
+ref table 'C3 - OS CONTROLE'
+ref table LocalDateTable_6f86253c-7460-4153-a255-786d57142a19
+ref table LocalDateTable_8581db0b-6b80-4d18-b97f-f156794999a3
+ref table LocalDateTable_6f2fa2aa-c8ac-48f7-951d-b24a2bb3269b
+ref table LocalDateTable_ea1a7e55-365d-4bc4-b714-2091420fa574
+ref table LocalDateTable_625aa63d-9f36-4809-8cd8-84b2c84304c1
+ref table ITEM
+ref table LocalDateTable_2d01f66a-9dbc-4e18-be6a-1ab9482892c9
+ref table LocalDateTable_d74e94b3-ca72-4fbe-934f-490396a7e8c9
+ref table LocalDateTable_241c701c-dd8a-451b-a221-48987c91c216
+
+ref cultureInfo pt-BR
+

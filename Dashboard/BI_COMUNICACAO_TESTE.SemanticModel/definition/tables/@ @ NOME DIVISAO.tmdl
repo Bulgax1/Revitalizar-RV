@@ -1,0 +1,49 @@
+table '@ @ NOME DIVISAO'
+	lineageTag: 36df4b89-4426-4180-b8f1-06dc207b38df
+
+	column DivisaoExtenso
+		dataType: string
+		lineageTag: 6135270a-ad2d-466a-b063-81c06c3213b8
+		summarizeBy: none
+		sourceColumn: DivisaoExtenso
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisaoAbreviado
+		dataType: string
+		lineageTag: ee1dae65-ef0b-4d17-a3e6-ecc2ec4e7741
+		summarizeBy: none
+		sourceColumn: DivisaoAbreviado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '@ @ NOME DIVISAO' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("ddDNCcMwDAXgVYzPXUKuhRH4r4oSAmlW6BI9NdCpvFidNIcEk4tOnx5PmiZtaaCuvJOySWXgOh1DtKhv2man59uZSM/DkUhLPEli8ComFlSoDNAIFlbt46Xuel8tk0Hiv+XNOuSyxDvBXhDK10CVAaLQo9+1y6FJzilKDd7XImSIGOD52i7LLUca8URXOLYQvKTGwYUTQinLJqQR62eOxLQklI+lownVzD8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [DivisaoExtenso = _t, DivisaoAbreviado = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"DivisaoExtenso", type text}, {"DivisaoAbreviado", type text}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","DIVISÃO DO PARDO GRANDE","DPG - PARDO GRANDE",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","DIVISÃO DO TURVO GRANDE","DTG - TURVO GRANDE",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","DIVISÃO DO LITORAL NORTE E BAIXADA","DLN - LITORAL NORTE E BAIXADA",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","DIVISÃO DO LITORAL SUL E RIBEIRA","DLR - LITORAL SUL E RIBEIRA",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","GERÊNCIA DO PARAÍBA E MANTIQUEIRA","GPM - PARAÍBA E MANTIQUEIRA",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","DIVISÃO DO PONTAL DO PARANAPANEMA#(lf)","DPP - PONTAL DO PARANAPANEMA",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","DIVISÃO DO PEIXE PARANAPANEMA","DXP - PEIXE PARANAPANEMA",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","DIVISÃO DO ALTO PARANAPANEMA","DAP - ALTO PARANAPANEMA",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","DIVISÃO DO ALTO TIETÊ","DAT - ALTO TIETÊ",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","DIVISÃO DO BAIXO TIETÊ","DBT - BAIXO TIETÊ",Replacer.ReplaceText,{"DivisaoExtenso"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","DIVISÃO DO MÉDIO TIETÊ","DMT - MÉDIO TIETÊ",Replacer.ReplaceText,{"DivisaoExtenso"})
+				in
+				    #"Replaced Value10"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

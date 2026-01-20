@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "d4cfff92ea223fff0d4d",
+  "position": {
+    "x": 0.0778816199376986,
+    "y": 147.78504672897225,
+    "z": 1000,
+    "height": 216.07476635514013,
+    "width": 299.75077881619939,
+    "tabOrder": 0
+  },
+  "visualGroup": {
+    "displayName": "Cartões",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "2785cbcd13dce7711157"
+}

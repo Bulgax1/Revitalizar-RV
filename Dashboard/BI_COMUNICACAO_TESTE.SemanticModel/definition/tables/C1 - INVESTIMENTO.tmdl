@@ -1,0 +1,114 @@
+table 'C1 - INVESTIMENTO'
+	lineageTag: a433f8bd-697a-410e-98c5-47341f28785b
+
+	column LOTE
+		dataType: string
+		lineageTag: fdf80bf5-c35d-4d12-9e1b-9d8c36ed1a65
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MUNICÍPIOS
+		dataType: string
+		lineageTag: 3fa39b0d-2381-40a9-b9f7-58feffb8bdd9
+		summarizeBy: none
+		sourceColumn: MUNICÍPIOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FILTRO LOTE' = if(VALUE('C1 - INVESTIMENTO'[LOTE]) = 1, "1 - DBPP",IF(VALUE('C1 - INVESTIMENTO'[LOTE]) = 2, "2 - DBAT+DBPB+DBRB",IF(VALUE('C1 - INVESTIMENTO'[LOTE]) = 3, "3 - DBMT+DBPG",IF(VALUE('C1 - INVESTIMENTO'[LOTE]) = 4, "4 - DBBT", IF(VALUE('C1 - INVESTIMENTO'[LOTE]) = 5, "5 - DBTG","-")))))
+		lineageTag: 89dbf1ba-f41b-4392-a238-c8f583610150
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAPA = CONCATENATE('C1 - INVESTIMENTO'[MUNICÍPIOS],", SP, BRASIL")
+		lineageTag: 2e10c289-9c3a-4027-8c68-68ebf2bc1a20
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVESTIMENTO-2022
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 471a7e4a-8968-4d82-aa7c-41e8899e8c7a
+		summarizeBy: sum
+		sourceColumn: INVESTIMENTO-2022
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column VOLUME-2022
+		dataType: string
+		lineageTag: e40e96ea-c106-4450-8608-e3d071060c77
+		summarizeBy: none
+		sourceColumn: VOLUME-2022
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVESTIMENTO-2023
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 44a57f6c-70d8-4741-b6bd-231c2c97c864
+		summarizeBy: sum
+		sourceColumn: INVESTIMENTO-2023
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column VOLUME-2023
+		dataType: string
+		lineageTag: 50b7189a-99a6-447c-bf70-3789f32bc6d9
+		summarizeBy: none
+		sourceColumn: VOLUME-2023
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INVESTIMENTO TOTAL'
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 5437d70d-a80e-4bed-ba34-9ca0875afbce
+		summarizeBy: sum
+		sourceColumn: INVESTIMENTO TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column 'VOLUME TOTAL'
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4eee26c8-a015-427c-be3d-7933420f920c
+		summarizeBy: sum
+		sourceColumn: VOLUME TOTAL
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'C1 - INVESTIMENTO' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://revitalizarrv.sharepoint.com/SupervisaoObras/DESASSOREAMENTO/1%C2%BA%20Ciclo/PLANILHAS%20DE%20CONTROLE/Rios%20Vivos%201%C2%BA%20ciclo%20(2022_2023)%20-%20Volumes%20e%20investimento%20por%20ano%20-%202024.04.23.xlsx"), null, true),
+				    SEMIL_Sheet = Fonte{[Item="SEMIL",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(SEMIL_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"RIOS VIVOS (1º Ciclo-2022/2023) RESULTADOS", type any}, {"Column2", type any}, {"Column3", type text}, {"Column4", type any}, {"Column5", type any}, {"Column6", type any}, {"Column7", type any}, {"Column8", type any}, {"Column9", type any}, {"Column10", type any}, {"Column11", type any}, {"Column12", type any}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado", each ([Column2] <> null)),
+				    #"Cabeçalhos Promovidos1" = Table.PromoteHeaders(#"Linhas Filtradas", [PromoteAllScalars=true]),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Cabeçalhos Promovidos1",{"nº ordem"}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Colunas Removidas",{{"INVESTIMENTO#(lf)(R$)", Currency.Type}, {"INVESTIMENTO2#(lf)(R$)", Currency.Type}}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Tipo Alterado2",{"Column8"}),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Colunas Removidas1",{"Column11", "Column12"}),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Colunas Removidas2",{{"INVESTIMENTO TOTAL#(lf)(R$)", Currency.Type}}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Tipo Alterado3",{{"LOTE2", "LOTE"}, {"INVESTIMENTO#(lf)(R$)", "INVESTIMENTO-2022"}, {"VOLUME#(lf)(m³)", "VOLUME-2022"}, {"INVESTIMENTO2#(lf)(R$)", "INVESTIMENTO-2023"}, {"VOLUME2#(lf)(m³)", "VOLUME-2023"}, {"INVESTIMENTO TOTAL#(lf)(R$)", "INVESTIMENTO TOTAL"}, {"VOLUME TOTAL#(lf)(m³)", "VOLUME TOTAL"}})
+				in
+				    #"Colunas Renomeadas1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

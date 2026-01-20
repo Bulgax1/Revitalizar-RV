@@ -1,0 +1,150 @@
+table 'C3 - ATA'
+	lineageTag: cb597ce8-d206-42e9-80bc-dcf6e6a4aac2
+
+	column BACIA
+		dataType: string
+		lineageTag: 397ec578-2ee0-4d26-a4d1-9581080035c8
+		summarizeBy: none
+		sourceColumn: BACIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUANTIDADE
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a77499b9-30cc-4380-8049-536f2d305d71
+		summarizeBy: sum
+		sourceColumn: QUANTIDADE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PREÇO UNITÁRIO'
+		dataType: decimal
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 6611c165-4220-4d9a-984e-6c2fcd6ad034
+		summarizeBy: none
+		sourceColumn: PREÇO UNITÁRIO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column VALOR
+		dataType: decimal
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 661ee222-9b29-434e-8ecb-704a1220e7c6
+		summarizeBy: sum
+		sourceColumn: VALOR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column DIRETORIA = CONCATENATE("D",'C3 - ATA'[BACIA])
+		lineageTag: 4924185e-a675-44ac-8f52-d172199fee5c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEM
+		dataType: string
+		lineageTag: d6b500f9-3fdd-46f4-9241-9971d56fb59d
+		summarizeBy: none
+		sourceColumn: ITEM
+		sortByColumn: ItemFiltro
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERÊNCIA
+		dataType: string
+		lineageTag: e01f31de-f0e2-44da-bd0e-fea746e405f8
+		summarizeBy: none
+		sourceColumn: REFERÊNCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descrição
+		dataType: string
+		lineageTag: 1a6480f5-7160-43ec-b7da-f142234353f3
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidade
+		dataType: string
+		lineageTag: a1bc49e8-84ef-4533-a760-1ad2c3546d4d
+		summarizeBy: none
+		sourceColumn: Unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemFiltro
+		dataType: double
+		lineageTag: e75e9ac1-cde0-46cc-b4f7-f843a62ff2ac
+		summarizeBy: sum
+		sourceColumn: ItemFiltro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Item_
+		dataType: int64
+		formatString: 0
+		lineageTag: 44d4bdd4-d013-45de-8418-4d81a900bf4e
+		summarizeBy: sum
+		sourceColumn: Item_
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_ATA = CONCATENATE('C3 - ATA'[REFERÊNCIA], 'C3 - ATA'[ITEM])
+		lineageTag: cada64bc-7bbf-40e1-a91f-c28cb99a206d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descrição_
+		dataType: string
+		lineageTag: a0093122-61fd-4e85-9c90-0748dace9f27
+		summarizeBy: none
+		sourceColumn: Descrição_
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ItemFiltro.2'
+		dataType: string
+		lineageTag: be2155af-495f-4804-bb7a-f5155e8c1be3
+		summarizeBy: none
+		sourceColumn: ItemFiltro.2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'C3 - ATA' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://revitalizarrv.sharepoint.com/SupervisaoObras/DESASSOREAMENTO/3%C2%BA%20Ciclo/2%20-%20Arquivos%20de%20Controle/CONTROLE%20QUANTITATIVOS.xlsx"), null, true),
+				    ATA_Sheet = Fonte{[Item="ATA",Kind="Sheet"]}[Data],
+				    #"Linhas Filtradas" = Table.SelectRows(ATA_Sheet, each ([Column1] <> null)),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Filtradas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"DIRETORIA", type text}, {"Quantidade - Ata", type number}, {"Preço Unitário (com BDI)", type number}, {"Preço Total ATA", type number}, {"Item", type text}, {"Item_", Int64.Type}}),
+				    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Tipo Alterado", {{"Preço Unitário (com BDI)", Currency.Type}}, "pt-BR"),
+				    #"Tipo Alterado com Localidade1" = Table.TransformColumnTypes(#"Tipo Alterado com Localidade", {{"Preço Total ATA", Currency.Type}}, "pt-BR"),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado com Localidade1",{{"Item", "ITEM"}, {"Quantidade - Ata", "QUANTIDADE-ATA"}, {"Preço Unitário (com BDI)", "PREÇO UNITÁRIO"}, {"Preço Total ATA", "VALOR-ATA"}, {"DIRETORIA", "BACIA"}}),
+				    Custom1 = Table.DuplicateColumn(#"Colunas Renomeadas","ITEM","ItemFiltro"),
+				    Custom2 = Table.SplitColumn(Custom1,"ItemFiltro",Splitter.SplitTextByPositions({0,1,2})),
+				    Custom3 = Table.ReplaceValue(Custom2, each [ItemFiltro.3], each if [ItemFiltro.3]<>"10" then Text.Combine({"0",[ItemFiltro.3]}) else [ItemFiltro.3], Replacer.ReplaceValue, {"ItemFiltro.3"}),
+				    Custom4 = Table.CombineColumns(#"Custom3",{"ItemFiltro.1","ItemFiltro.3"},Combiner.CombineTextByDelimiter(",", QuoteStyle.None), "ItemFiltro"),
+				    #"Changed Type" = Table.TransformColumnTypes(Custom4,{{"ItemFiltro", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"QUANTIDADE-ATA", "QUANTIDADE"}, {"VALOR-ATA", "VALOR"}}),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Renamed Columns", each ([REFERÊNCIA] <> null))
+				in
+				    #"Linhas Filtradas1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
