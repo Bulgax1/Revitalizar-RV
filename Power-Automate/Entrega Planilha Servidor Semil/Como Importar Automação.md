@@ -9,7 +9,7 @@
 <img width="587" height="317" alt="Captura de tela 2026-02-13 093315" src="https://github.com/user-attachments/assets/788d99ec-abad-4276-9e55-7b7fb26f081e" /></div>
 
 <div><h1><b>Passo 3:</b></h1>
-  <p><h3>Copie o arquivo "Automação Desktop", na pasta "Códigos", clique com o botão direito na página e cole o código copiado.</h3></p><br>
+  <p><h3>Copie o arquivo ["Automação Desktop"]() clique com o botão direito na página e cole o código copiado.</h3></p><br>
 <img width="1916" height="1032" alt="Captura de tela 2026-02-13 094157" src="https://github.com/user-attachments/assets/586aea2f-ea32-4e17-a3eb-5e5442346063" /></div>
 
 Passo 4: <br>
