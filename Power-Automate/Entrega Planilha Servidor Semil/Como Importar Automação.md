@@ -1,21 +1,14 @@
-<head>
-  <style>
-    h1 {color:white;
-        text-align: left
-       }
-  </style>
-</head>
+<html>
 <body>
-<div><h1><b>Passo 1: </b></h1>
-  <h3><p>Entrar na loja do windows (Microsoft Store) e baixar o Power Automate Desktop. </p></h3>
-<br>
-<br>
+  <nav>
+    <a href="Passo 1"> Passo 1</a>
+<div><h1 color="blue"><b>Passo 1: </b></h1>
+  <p><h3>Entrar na loja do windows (Microsoft Store) e baixar o Power Automate Desktop. </h3></p><br>
 <img width="1538" height="550" alt="powerAppsStore" src="https://github.com/user-attachments/assets/10a8234b-45f1-4cbe-a201-6934036f6ac8" /></div>
 
-Passo 2: <br>
-  Abra o aplicativo Power Automate Desktop e crie um fluxo novo. <br>
-  <br>
-<img width="587" height="317" alt="Captura de tela 2026-02-13 093315" src="https://github.com/user-attachments/assets/788d99ec-abad-4276-9e55-7b7fb26f081e" />
+<div><h1><b>Passo 2:</b></h1>
+  <p><h3>Abra o aplicativo Power Automate Desktop e crie um fluxo novo.</h3></p><br>
+<img width="587" height="317" alt="Captura de tela 2026-02-13 093315" src="https://github.com/user-attachments/assets/788d99ec-abad-4276-9e55-7b7fb26f081e" /></div>
 
 Passo 3: <br>
   Copie o arquivo "Automação Desktop", na pasta "Códigos", clique com o botão direito na página e cole o código copiado.
@@ -33,7 +26,5 @@ Passo 4: <br>
   Passo 5: <br>
   Por fim, salvar a automação. <br><br>
   <img width="689" height="323" alt="Captura de tela 2026-02-13 104537" src="https://github.com/user-attachments/assets/5c527605-d57b-496f-b60f-94e542bc0126" />
-
-
-
 </body>
+</html>
