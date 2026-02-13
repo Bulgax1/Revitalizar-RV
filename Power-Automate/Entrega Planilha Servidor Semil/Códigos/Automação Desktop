@@ -1,0 +1,67 @@
+FTP.OpenSecureConnection.ConnectWithFtpsImplicit
+    Host: $'''ftpsemil.ambiente.sp.gov.br'''
+    Port: 990
+    ActiveMode: False
+    Username: $'''sma\\ftpriosvivos'''
+    Password: P'AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKFy8996sBESH8d3g/GHS9gQAAAACAAAAAAAQZgAAAAEAACAAAAC716ETMIbxVNcYdlyirVDtuRz0b4ElvYYXC2Cdwx3avgAAAAAOgAAAAAIAACAAAABNPP8b/FNc1hAvE0iZqOzcADBgA9tUMnKMYT4ZKmjShSAAAADhNECV+y5HPRLheIT/kUxFq0CdJf+gAP4EQ2e1cOuiHUAAAACRZAG7bDtnJYGsLbvHWfml8nJLeVNJWL3+xmZszWFjNhv59P0g3DXvVsS4aR1dPmalg8/uSMdNP9FFJKSEKvH4'
+    AcceptUntrustedCertificates: False
+    Timeout: 10
+    SftpConnection => SftpConnection
+
+@@dataset: 'SP Águas - Rios Vivos - https://revitalizarrv.sharepoint.com/sites/ProgramaRiosVivos'
+@@id: '/Gerenciamento/SEMIL/dados_Rios Vivos.xlsx'
+@@connectionDisplayName: 'Cr66cfb_shared_sharepointonline_594587ef'
+
+External.InvokeCloudConnector
+    Connection: '1b4c5a9e-2b52-4c87-a579-3a32fac1f51e'
+    ConnectorId: '/providers/Microsoft.PowerApps/apis/shared_sharepointonline'
+    OperationId: 'GetFileContent'
+    @dataset: $'''https://revitalizarrv.sharepoint.com/sites/ProgramaRiosVivos'''
+    @id: $'''%%252fGerenciamento%%252fSEMIL%%252fdados_Rios%%2bVivos.xlsx'''
+    @inferContentType: True
+    @GetFileContentResponse => arquivoSharePoint
+
+File.ConvertFromBinary
+    BinaryData: arquivoSharePoint
+    File: $'''C:\\Users\\CaloPedroHenriquedeO\\Downloads\\teste\\dados_Rios Vivos.xlsx'''
+    IfFileExists: File.IfExists.Overwrite
+
+FTP.UploadFiles
+    Connection: SftpConnection
+    Files: $'''C:\\Users\\CaloPedroHenriquedeO\\Downloads\\teste\\dados_Rios Vivos.xlsx'''
+    RemoteLocation: $'''/ftpriosvivos/'''
+    TransferType: FTP.FtpTransferType.Auto
+    IfFileExists: FTP.IfFtpFileExists.Overwrite
+
+ON ERROR UploadFileError
+    REPEAT ACTION
+ON ERROR
+    REPEAT ACTION
+END
+
+FTP.CloseConnection
+    Connection: SftpConnection
+
+
+# [ControlRepository][PowerAutomateDesktop]
+
+{
+  "ControlRepositorySymbols": [],
+  "ImageRepositorySymbol": {
+    "Repository": "{\r\n  \"Folders\": [],\r\n  \"Images\": [],\r\n  \"Version\": 1\r\n}",
+    "ImportMetadata": {},
+    "Name": "imgrepo"
+  },
+  "ConnectionReferences": [
+    {
+      "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+      "DisplayName": "Cr66cfb_shared_sharepointonline_594587ef",
+      "InternalId": "1b4c5a9e-2b52-4c87-a579-3a32fac1f51e",
+      "IsDisabled": false,
+      "LogicalName": "Cr66cfb_shared_sharepointonline_594587ef3f954bca9333a38bdd86d1a7",
+      "IsEmbedded": false,
+      "ConnectionName": "shared-sharepointonl-1b494d5f-86c5-4e87-a3c7-0195e5479877",
+      "ConnectionDisplayName": "pcalo@revitalizar-rv.com.br"
+    }
+  ]
+}
