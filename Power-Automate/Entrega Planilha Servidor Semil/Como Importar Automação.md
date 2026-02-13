@@ -9,8 +9,11 @@
 <img width="587" height="317" alt="Captura de tela 2026-02-13 093315" src="https://github.com/user-attachments/assets/788d99ec-abad-4276-9e55-7b7fb26f081e" /></div>
 
 <div><h1><b>Passo 3:</b></h1>
-  <p><h3>Copie o arquivo ["Automação Desktop"](Automação Desktop) clique com o botão direito na página e cole o código copiado.</h3></p><br>
-<img width="1916" height="1032" alt="Captura de tela 2026-02-13 094157" src="https://github.com/user-attachments/assets/586aea2f-ea32-4e17-a3eb-5e5442346063" /></div>
+  <p><h3>Copie o arquivo <a href="https://github.com/Bulgax1/Revitalizar-RV/blob/main/Power-Automate/Entrega%20Planilha%20Servidor%20Semil/C%C3%B3digos/Automa%C3%A7%C3%A3o%20Desktop"> "Automação Desktop" </a> clique com o botão direito na página e cole o código copiado.</h3></p><br>
+<img width="1916" height="1032" alt="Captura de tela 2026-02-13 094157" src="https://github.com/user-attachments/assets/586aea2f-ea32-4e17-a3eb-5e5442346063" />
+
+["Automação Desktop"](https://github.com/Bulgax1/Revitalizar-RV/blob/main/Power-Automate/Entrega%20Planilha%20Servidor%20Semil/C%C3%B3digos/Automa%C3%A7%C3%A3o%20Desktop)
+</div>
 
 Passo 4: <br>
   Algumas etapas da automação precisam ser ajustadas para que não haja erro. <br>
