@@ -1,8 +1,6 @@
 <html>
 <body>
-  <nav>
-    <a href="[Passo 1]"> Passo 1</a>
-<div><h1 color="blue"><b>Passo 1: </b></h1>
+<div color="white" text-align="left"><h1><b>Passo 1: </b></h1>
   <p><h3>Entrar na loja do windows (Microsoft Store) e baixar o Power Automate Desktop. </h3></p><br>
 <img width="1538" height="550" alt="powerAppsStore" src="https://github.com/user-attachments/assets/10a8234b-45f1-4cbe-a201-6934036f6ac8" /></div>
 
@@ -10,10 +8,9 @@
   <p><h3>Abra o aplicativo Power Automate Desktop e crie um fluxo novo.</h3></p><br>
 <img width="587" height="317" alt="Captura de tela 2026-02-13 093315" src="https://github.com/user-attachments/assets/788d99ec-abad-4276-9e55-7b7fb26f081e" /></div>
 
-Passo 3: <br>
-  Copie o arquivo "Automação Desktop", na pasta "Códigos", clique com o botão direito na página e cole o código copiado.
-  <br><br>
-<img width="1916" height="1032" alt="Captura de tela 2026-02-13 094157" src="https://github.com/user-attachments/assets/586aea2f-ea32-4e17-a3eb-5e5442346063" />
+<div><h1><b>Passo 3:</b></h1>
+  <p><h3>Copie o arquivo "Automação Desktop", na pasta "Códigos", clique com o botão direito na página e cole o código copiado.</h3></p><br>
+<img width="1916" height="1032" alt="Captura de tela 2026-02-13 094157" src="https://github.com/user-attachments/assets/586aea2f-ea32-4e17-a3eb-5e5442346063" /></div>
 
 Passo 4: <br>
   Algumas etapas da automação precisam ser ajustadas para que não haja erro. <br>
